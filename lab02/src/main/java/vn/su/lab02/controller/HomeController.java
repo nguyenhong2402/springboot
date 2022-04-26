@@ -71,7 +71,9 @@ public class HomeController {
 
     @GetMapping("/job/sortbylocation")
     public List<Job> sortListJobbyLocation() {
-
+        // List<Job> listSort = jobs.values().stream().toList();
+        // listSort.sort(Comparator.comparing(Job::getLocation)); ///Code lỗiii
+        // return listSort;
         return jobs.values().stream().sorted(Comparator.comparing(Job::getLocation)).collect(Collectors.toList());
     }
 
