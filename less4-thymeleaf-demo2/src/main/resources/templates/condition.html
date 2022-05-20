@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template.html :: header('condition')">
+</head>
+<body>  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Nationality</th>
+        <th scope="col">Birthdate</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Icon</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="person, iStat:${people}" th:class="${person.gender=='male'} ? table-primary : table-warning">
+        <th scope="row" th:text="${iStat.index} +1"></th>
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.nationality}"></td>
+        <td th:text="${#dates.format(person.birthDay, 'dd-MMM-yyyy')}"></td>
+        <td th:text="${person.gender}"></td>
+        <td>
+          <span th:if="${person.gender == 'female'}">🙎🏻‍♀️</span>
+          <span th:unless="${person.gender == 'female'}">🙎🏻‍♂️</span>
+        </td>
+      </tr>     
+    </tbody>
+  </table>
+</body>
+</html>

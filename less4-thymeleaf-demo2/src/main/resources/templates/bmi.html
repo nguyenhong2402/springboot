@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <style>
+    .error {
+      color: red;  
+    }
+  </style>
+</head>
+<body>
+   <h1>BMI index</h1>
+  <form action="#" th:action="@{/bmi}" th:object="${bmiRequest}" method="post">
+    <input type="text" placeholder="Your name" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="*{name}"></span>
+    <br><br>
+    <input type="text" placeholder="Your email" th:field="*{email}"/>
+    <span th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}"></span>
+    <br><br>
+    <input type="text" placeholder="Your height" th:field="*{height}"/> (m)
+    <span th:if="${#fields.hasErrors('height')}" th:errorclass="error" th:errors="*{height}"></span>
+    <br><br>
+    <input type="text" placeholder="Your weight" th:field="*{weight}"/> (kg)
+    <span th:if="${#fields.hasErrors('weight')}" th:errorclass="error" th:errors="*{weight}"></span>
+    <br><br>
+    <button type="submit">Calculate BMI</button>
+  </form>
+  <br>
+  <div th:if="${bmiResult != null}">
+    BMI Index : <strong th:text="${bmiResult?.bmiIndex}"></strong><br>
+    Phân loại: <strong th:text="${bmiResult?.category}"></strong><br>
+    Lời khuyên: <strong th:text="${bmiResult?.recommendation}"></strong>
+  </div>
+</body>
+</html>
