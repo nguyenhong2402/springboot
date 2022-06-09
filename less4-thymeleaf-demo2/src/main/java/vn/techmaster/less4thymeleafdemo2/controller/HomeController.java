@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import vn.techmaster.less4thymeleafdemo2.model.Person;
+import vn.techmaster.less4thymeleafdemo2.model.TravelType;
 import vn.techmaster.less4thymeleafdemo2.repository.InMemoryRepository;
 
 @Controller
@@ -65,5 +66,10 @@ public class HomeController {
     public String demoSwitch(Model model) {
         model.addAttribute("users", inMemoryRepo.getUsers());
         return "switch";
+    }
+    @GetMapping("/thblock")
+    public String demoThBlock(Model model) {
+        model.addAttribute("travelTypes", TravelType.values());
+        return "thblock";
     }
 }
