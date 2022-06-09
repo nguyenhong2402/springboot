@@ -60,12 +60,16 @@ public class EmployerServiceImpl implements EmployerService {
         getEmployerById(employerId);
         employerRepo.delete(employerId);
     }
-   @Override
-   public void edit(EmployerRequest employerRequest, String employerId) {
+  @Override
+  public void edit(EmployerRequest employerRequest) {
     Employer editEmployer = modelMapper.map(employerRequest, Employer.class);
-    editEmployer.setId(employerId);
-    String logoPath = storageService.saveFile(employerRequest.getLogo(), employerId);
-        editEmployer.setLogoPath(logoPath);
-    employerRepo.save(editEmployer);
-   }
+    String logoPath = storageService.saveFile(employerRequest.getLogo(), editEmployer.getId());
+    editEmployer.setLogoPath(logoPath);
+    employerRepo.save(editEmployer);      
+  }
+  public EmployerRequest getByIdEmployerRequest(Employer employer){
+      EmployerRequest employerRequest = modelMapper.map(employer, EmployerRequest.class);
+     
+    return employerRequest;
+  }
 }
