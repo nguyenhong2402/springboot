@@ -19,8 +19,8 @@ public class EmailSenderService {
     JavaMailSender mailSender;
 
     public void sendEmail() {
-        String from = "thinhdraft279@gmail.com";
-        String to = "thinhtv279888@gmail.com";
+        String from = "sumkqn01@gmail.com";
+        String to = "nguyenxuanhong2402@gmail.com";
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper;
@@ -32,7 +32,7 @@ public class EmailSenderService {
 
             helper.setText("<b>Dear friend</b>,<br><i>Please find the book attached.</i>", true);
 
-            FileSystemResource file = new FileSystemResource(new File("D:/techmaster/note/photos/z3335812314302_6192bfa543cabfcb3a27e427e3c0d841.jpg"));
+            FileSystemResource file = new FileSystemResource(new File("C:/Users/Admin/Desktop/z3143184877719_cce0a58059cc18aac1a893f0d4426902.jpg"));
             helper.addAttachment("emailsender.jpg", file);
 
             mailSender.send(message);

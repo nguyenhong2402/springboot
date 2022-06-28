@@ -16,6 +16,7 @@ public class TestEmployer {
   @Autowired private EntityManager em;
   @Test
   public void addEmployer() {
+    
     Faker faker = new Faker();
     var employer = Employer.builder().name(faker.company().name())
 			.email(faker.internet().emailAddress())

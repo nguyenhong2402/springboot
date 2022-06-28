@@ -12,11 +12,13 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity(name = "course")
 @Table(name = "course")
 @Data
 @NoArgsConstructor
+@ToString(exclude ="courseRatingkey")
 public class Course {
     @Id 
     private Long id;

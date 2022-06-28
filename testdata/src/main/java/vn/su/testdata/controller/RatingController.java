@@ -1,5 +1,6 @@
 package vn.su.testdata.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import vn.su.testdata.service.TService;
 @RestController
 @RequestMapping("/")
 public class RatingController {
+
     @Autowired
     TService tService;
 
@@ -38,8 +40,11 @@ public class RatingController {
 
         return tService.findStudentById(1L).getRatings();
     }
-    @GetMapping("/api")
-    public Map<String, List<Student>> findListStudentByCourse() {
-        return tService.findListStudentByCourse();
-    }
+   @GetMapping("/api")
+   public String getListStudentByCourse() {
+      
+       
+       System.out.println(tService.findListStudentByCourse());
+       return "Thực thi thành công";
+   }
 }

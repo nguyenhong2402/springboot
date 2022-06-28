@@ -16,7 +16,8 @@ public interface EmployerService {
     Employer updateEmployer(Employer employer);
     void delete(String employerId);
     void edit(EmployerRequest employerRequest);
-    Object getByIdEmployerRequest(Employer employerById);
+    
+    EmployerRequest getByIdEmployerRequest(Employer employerById);
    
    
 

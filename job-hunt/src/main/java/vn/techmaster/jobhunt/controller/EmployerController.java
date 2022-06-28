@@ -4,7 +4,7 @@ import java.util.Locale;
 
 import javax.validation.Valid;
 
-import org.modelmapper.ModelMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import vn.techmaster.jobhunt.dto.EmployerRequest;
-import vn.techmaster.jobhunt.model.Employer;
 import vn.techmaster.jobhunt.service.EmployerService;
 
 @Controller
